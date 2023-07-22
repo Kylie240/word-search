@@ -10,15 +10,14 @@ const DayWord = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-            const response = await fetch(`${API_URL}hire`)
+            const response = await fetch(`${API_URL}${word}`)
             .then(response => response.json())
-            console.log(response);
-            setWordData(response)
+            setWordData(response[0].meanings[0].definitions[0].definition)
       } catch (error) {
             console.error(error);
       }
-      loadData()
     }
+    loadData()
   }, [])  
 
     const date = new Date()
@@ -26,7 +25,6 @@ const DayWord = () => {
     const currentMonth = months[date.getMonth()]
     const currentDay = date.getDate()
     const currentYear = date.getFullYear()
-  console.log(wordData);
 
   return (
     <div className='flex flex-col justify-center items-center'>
@@ -46,7 +44,7 @@ const DayWord = () => {
           </div>
           <div>
             <p className='text-black font-medium'>definition:</p>
-            <p className='text-textColor'></p>
+            {wordData && <p className='text-textColor'>{wordData}</p>}
           </div>
           <p className='flex justify-end font-semibold'>{currentMonth} {currentDay}, {currentYear}</p>
         </div>

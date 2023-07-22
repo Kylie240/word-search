@@ -15,7 +15,12 @@ const App = () => {
         try {
             const response = await fetch(`${API_URL}${searchValue}`)
             .then(response => response.json())
-            setWordData(response)
+            if (!response.message) {
+              setWordData(response)
+              window.scrollBy(0, 500)
+            } else {
+              setWordData("word not found")
+            }
         } catch (error) {
             console.error(error);
         }
