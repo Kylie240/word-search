@@ -61,9 +61,9 @@ const Results = ({data, handleSearch}) => {
                         <p className='hidden'>no saves yet</p>
                     }
 
-                <div className='bg-white flex flex-col justify-start rounded-lg p-8 px-8 w-[95%] max-w-[1000px]'>
+                <div className='bg-white flex flex-col justify-start rounded-lg p-10 w-[95%] max-w-[1000px]'>
                     <div className='flex flex-wrap justify-start items-end gap-3'>
-                        <h1 className="font-bold text-5xl my-2">{data[0].word}</h1>
+                        <h1 className="flex flex-wrap font-bold text-4xl md:text-5xl lg:text-6xl my-2">{data[0].word}</h1>
                         <div className='flex gap-3 relative bottom-1'>
                             <p className='relative bottom-1'>{data[0].phonetic}</p>
                             <i class="fa-solid fa-volume-high relative fa-md cursor-pointer"
@@ -83,21 +83,21 @@ const Results = ({data, handleSearch}) => {
                                     <p className='pt-2 border-b-4 mb-4 border-blueColor'>meaning:</p>
                                     {showSpeech && <p className=' bg-blueColor py-[2px] px-[4px] text-white'>{meaning.partOfSpeech}</p>}
                                     {meaning.definitions.map((definition, index) => (
-                                        <div className='relative left-4'>
+                                        <div>
                                             <div className='flex gap-3 py-2 text-xl'>
                                                 <p>{index+1}. </p>
                                                 <div className='definition text-textColor'>{definition.definition}</div>
                                             </div>
                                             {definition.example && showExamples &&
-                                                <div className='flex relative items-center left-2 gap-1 p-2'>
+                                                <div className='flex relative items-center gap-1 p-2'>
                                                     <span className='text-blueColor font-bold'>ex</span>
-                                                    <p className='example left-2 border-l-4 pl-1 border-blueColor '>{definition.example}</p>
+                                                    <p className='example border-l-4 pl-1 border-blueColor '>{definition.example}</p>
                                                 </div>
                                             }
                                         </div>
                                     ))}
                                     {showSynonyms && meaning.synonyms.length > 0  ?
-                                    <div className='flex flex-wrap gap-4 text-xl py-2 relative left-8'>
+                                    <div className='flex flex-wrap gap-4 text-xl py-2 relative'>
                                         <span className='text-blueColor font-semibold'>- Synonym{meaning.synonyms.length > 1 ? "s:" : ":"}</span>
                                         {meaning.synonyms.map((synonym) => (
                                             <p className='hover:text-blueColor cursor-pointer flex gap-4'

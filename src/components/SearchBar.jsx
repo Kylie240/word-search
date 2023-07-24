@@ -12,7 +12,7 @@ const SearchBar = ({handleSearch}) => {
 
   return (
     <div className='header flex justify-center'>
-        <div className='search-container bg-greyColor rounded-lg py-8 md:py-10 w-screen lg:w-[85%] max-w-[900px] flex flex-col gap-8 justify-center items-center'>
+        <div className='search-container bg-greyColor rounded-lg py-8 w-screen lg:w-[85%] max-w-[900px] flex flex-col gap-8 justify-center items-center'>
                 <form onSubmit={(e) => handleSubmit(e)} className='bg-white shadow-md p-6 rounded-lg flex justify-between gap-2 h-24 w-[95%]'>
                     <div className='search-input w-full flex items-center'>
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -26,11 +26,6 @@ const SearchBar = ({handleSearch}) => {
                     </div>
                     <button type='submit' className='submit-btn bg-blueColor p-2'>Search</button>
                 </form>
-                <div className='flex flex-wrap justify-center w-4/5'>
-                    <div className='w-1/3 flex justify-between'>
-
-                    </div>
-                </div>
         </div>
     </div>
   )

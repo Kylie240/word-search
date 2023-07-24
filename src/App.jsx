@@ -17,7 +17,7 @@ const App = () => {
             .then(response => response.json())
             if (!response.message) {
               setWordData(response)
-              window.scrollBy(0, 500)
+              window.scrollTo(0, 675)
             } else {
               setWordData("word not found")
             }

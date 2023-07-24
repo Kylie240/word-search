@@ -4,7 +4,8 @@ import { API_URL, apiOptions } from '../api'
 
 const DayWord = () => {
   const [word, setWord] = useState(generate())
-  const [wordData, setWordData] = useState()
+  const [wordDefinition, setWordDefinition] = useState()
+  const [phonetic, setPhonetic] = useState()
   const [toggleModal, setToggleModal] = useState(true)
 
   useEffect(() => {
@@ -12,7 +13,8 @@ const DayWord = () => {
       try {
             const response = await fetch(`${API_URL}${word}`)
             .then(response => response.json())
-            setWordData(response[0].meanings[0].definitions[0].definition)
+            setPhonetic(response[0].phonetic);
+            setWordDefinition(response[0].meanings[0].definitions[0].definition)
       } catch (error) {
             console.error(error);
       }
@@ -33,18 +35,18 @@ const DayWord = () => {
         {toggleModal ? <i class="fa-solid fa-chevron-up"></i> :
           <i class="fa-solid fa-chevron-down"></i>}
       </div>
-      {toggleModal && <div className='bg-blueColor rounded-xl p-4 flex flex-col justify-center items-center'>
+      {toggleModal && <div className='bg-blueColor rounded-xl m-4 p-4 flex flex-col justify-center items-center'>
         <div className='bg-white rounded-xl p-4 flex flex-col gap-4'>
-          <div>
-            <h2 className='font-bold text-blueColor text-3xl'>{word}</h2>
+          <div className='flex gap-2 items-end'>
+            <h2 className='font-bold text-blueColor text-4xl'>{word}</h2>
             <div className='flex justify-start gap-2 items-center'>
-              <p className='text-textColor'></p>
+              <p className='text-textColor'>{phonetic}</p>
               <i class="fa-solid fa-volume-high"></i>
             </div>
           </div>
           <div>
             <p className='text-black font-medium'>definition:</p>
-            {wordData && <p className='text-textColor'>{wordData}</p>}
+            {wordDefinition && <p className='text-textColor'>{wordDefinition}</p>}
           </div>
           <p className='flex justify-end font-semibold'>{currentMonth} {currentDay}, {currentYear}</p>
         </div>

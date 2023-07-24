@@ -11,7 +11,7 @@ const RandomWord = ({handleSearch}) => {
         <div className='flex flex-wrap justify-center items-center p-4 gap-6'>
             {wordArr.map((word, index) => (
                 <p key={index} 
-                    className='p-2 bg-blue border-4 cursor-pointer rounded-lg text-lg border-blueColor hover:text-white hover:bg-blue-300'
+                    className='p-2 bg-blue border-8 cursor-pointer rounded-lg text-lg border-blueColor hover:text-white hover:bg-blue-300'
                     onClick={() => handleSearch(word)}
                     >{word}</p>
             ))}
