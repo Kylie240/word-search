@@ -19,6 +19,6 @@ React
 </p>
 
 <h4>Project preview:</h4>
-<img width="500" src="https://kylieoliver.com/localhost_5173_.png"/>
+<img width="500" src="https://kylieoliver.com/word-search.png"/>
   
 </div>
